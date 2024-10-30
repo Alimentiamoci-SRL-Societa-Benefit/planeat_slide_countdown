@@ -25,10 +25,14 @@ class DigitSeparatedItem extends BaseDigits {
     required super.textDirection,
     required super.showSeparator,
     required super.separatorDirection,
+    required this.margin,
     super.key,
     super.separatorPadding,
     super.digitsNumber,
   });
+
+  /// The margin for the container
+  final EdgeInsetsGeometry margin;
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +100,7 @@ class DigitSeparatedItem extends BaseDigits {
 
     final box = BoxSeparated(
       padding: padding,
+      margin: margin,
       decoration: decoration,
       child: Row(
         mainAxisSize: MainAxisSize.min,

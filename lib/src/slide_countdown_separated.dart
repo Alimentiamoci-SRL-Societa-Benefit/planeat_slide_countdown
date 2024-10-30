@@ -21,6 +21,7 @@ import 'package:slide_countdown/src/widgets/digit_separated_item.dart';
 class SlideCountdownSeparated extends SlideCountdownBase {
   /// {@macro slide_countdown_separated}
   const SlideCountdownSeparated({
+    this.margin = EdgeInsets.zero,
     super.key,
     super.duration,
     super.style = kDefaultTextStyle,
@@ -49,6 +50,9 @@ class SlideCountdownSeparated extends SlideCountdownBase {
     super.shouldShowSeconds,
     super.separatorDirection = SeparatorDirection.horizontal,
   });
+
+  /// The margin for the container
+  final EdgeInsetsGeometry margin;
 
   @override
   State createState() => _SlideCountdownSeparatedState();
@@ -169,6 +173,7 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
           showSeparator: (showHours || showMinutes || showSeconds) ||
               (isSeparatorTitle && showDays),
           separatorDirection: widget.separatorDirection,
+          margin: widget.margin,
         );
 
         final hours = DigitSeparatedItem(
@@ -189,6 +194,7 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
           showSeparator:
               showMinutes || showSeconds || (isSeparatorTitle && showHours),
           separatorDirection: widget.separatorDirection,
+          margin: widget.margin,
         );
 
         final minutes = DigitSeparatedItem(
@@ -208,6 +214,7 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
           digitsNumber: widget.digitsNumber,
           showSeparator: showSeconds || (isSeparatorTitle && showMinutes),
           separatorDirection: widget.separatorDirection,
+          margin: widget.margin,
         );
 
         final seconds = DigitSeparatedItem(
@@ -227,6 +234,7 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
           digitsNumber: widget.digitsNumber,
           showSeparator: isSeparatorTitle && showSeconds,
           separatorDirection: widget.separatorDirection,
+          margin: widget.margin,
         );
 
         final daysWidget = showDays ? days : const SizedBox.shrink();

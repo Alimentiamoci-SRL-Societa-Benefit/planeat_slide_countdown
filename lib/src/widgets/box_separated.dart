@@ -12,6 +12,7 @@ class BoxSeparated extends StatelessWidget {
     required this.padding,
     required this.decoration,
     required this.child,
+    required this.margin,
     super.key,
   });
 
@@ -24,10 +25,14 @@ class BoxSeparated extends StatelessWidget {
   /// The widget to be displayed in the center of the container.
   final Widget child;
 
+  /// The margin to be added
+  final EdgeInsetsGeometry margin;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: padding,
+      margin: margin,
       decoration: decoration,
       clipBehavior: Clip.hardEdge,
       alignment: Alignment.center,
