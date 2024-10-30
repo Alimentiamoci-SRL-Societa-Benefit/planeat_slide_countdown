@@ -98,13 +98,22 @@ class DigitItem extends BaseDigits {
           )
         : const SizedBox.shrink();
 
+    final digitsRow = Row(
+      children: [...digits],
+    );
     return ExcludeSemantics(
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: textDirection.isRtl
-            ? [separatorWidget, ...digits]
-            : [...digits, separatorWidget],
-      ),
+      child: switch (separatorDirection) {
+        SeparatorDirection.vertical => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [digitsRow, separatorWidget],
+          ),
+        SeparatorDirection.horizontal => Row(
+            mainAxisSize: MainAxisSize.min,
+            children: textDirection.isRtl
+                ? [separatorWidget, digitsRow]
+                : [digitsRow, separatorWidget],
+          )
+      },
     );
   }
 }
