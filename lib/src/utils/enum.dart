@@ -56,3 +56,14 @@ enum DigitType {
   /// Represents the second digit.
   second,
 }
+
+/// {@template separator_direction}
+/// SeparatorDirection is a class that represent the position of the separator.
+/// {@endtemplate}
+enum SeparatorDirection {
+  /// If is vertical, the separator will be positioned under the digit
+  vertical,
+
+  /// If is horizontal, the separator will be positioned alongside the digit
+  horizontal;
+}

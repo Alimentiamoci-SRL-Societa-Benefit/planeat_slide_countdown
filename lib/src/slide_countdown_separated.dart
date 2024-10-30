@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:slide_countdown/slide_countdown.dart';
-
 import 'package:slide_countdown/src/models/slide_countdown_base.dart';
 import 'package:slide_countdown/src/utils/extensions.dart';
 import 'package:slide_countdown/src/utils/utils.dart';
@@ -48,6 +47,7 @@ class SlideCountdownSeparated extends SlideCountdownBase {
     super.shouldShowHours,
     super.shouldShowMinutes,
     super.shouldShowSeconds,
+    super.separatorDirection = SeparatorDirection.horizontal,
   });
 
   @override
@@ -168,6 +168,7 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
           digitsNumber: widget.digitsNumber,
           showSeparator: (showHours || showMinutes || showSeconds) ||
               (isSeparatorTitle && showDays),
+          separatorDirection: widget.separatorDirection,
         );
 
         final hours = DigitSeparatedItem(
@@ -187,6 +188,7 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
           digitsNumber: widget.digitsNumber,
           showSeparator:
               showMinutes || showSeconds || (isSeparatorTitle && showHours),
+          separatorDirection: widget.separatorDirection,
         );
 
         final minutes = DigitSeparatedItem(
@@ -205,6 +207,7 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
           textDirection: textDirection,
           digitsNumber: widget.digitsNumber,
           showSeparator: showSeconds || (isSeparatorTitle && showMinutes),
+          separatorDirection: widget.separatorDirection,
         );
 
         final seconds = DigitSeparatedItem(
@@ -223,6 +226,7 @@ class _SlideCountdownSeparatedState extends State<SlideCountdownSeparated> {
           textDirection: textDirection,
           digitsNumber: widget.digitsNumber,
           showSeparator: isSeparatorTitle && showSeconds,
+          separatorDirection: widget.separatorDirection,
         );
 
         final daysWidget = showDays ? days : const SizedBox.shrink();

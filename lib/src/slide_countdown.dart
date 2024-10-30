@@ -47,6 +47,7 @@ class SlideCountdown extends SlideCountdownBase {
     super.shouldShowHours,
     super.shouldShowMinutes,
     super.shouldShowSeconds,
+    super.separatorDirection = SeparatorDirection.horizontal,
   });
 
   @override
@@ -166,6 +167,7 @@ class _SlideCountdownState extends State<SlideCountdown> {
           digitsNumber: widget.digitsNumber,
           showSeparator: (showHours || showMinutes || showSeconds) ||
               (isSeparatorTitle && showDays),
+          separatorDirection: widget.separatorDirection,
         );
 
         final hours = DigitItem(
@@ -185,6 +187,7 @@ class _SlideCountdownState extends State<SlideCountdown> {
           digitsNumber: widget.digitsNumber,
           showSeparator:
               showMinutes || showSeconds || (isSeparatorTitle && showHours),
+          separatorDirection: widget.separatorDirection,
         );
 
         final minutes = DigitItem(
@@ -203,6 +206,7 @@ class _SlideCountdownState extends State<SlideCountdown> {
           textDirection: textDirection,
           digitsNumber: widget.digitsNumber,
           showSeparator: showSeconds || (isSeparatorTitle && showMinutes),
+          separatorDirection: widget.separatorDirection,
         );
 
         final seconds = DigitItem(
@@ -221,6 +225,7 @@ class _SlideCountdownState extends State<SlideCountdown> {
           textDirection: textDirection,
           digitsNumber: widget.digitsNumber,
           showSeparator: isSeparatorTitle && showSeconds,
+          separatorDirection: widget.separatorDirection,
         );
 
         final daysWidget = showDays ? days : const SizedBox.shrink();

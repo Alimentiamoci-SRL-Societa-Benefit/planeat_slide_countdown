@@ -22,6 +22,7 @@ abstract class BaseDigits extends StatelessWidget {
     required this.separator,
     required this.showSeparator,
     required this.textDirection,
+    required this.separatorDirection,
     super.key,
     this.separatorPadding,
     this.digitsNumber,
@@ -59,6 +60,9 @@ abstract class BaseDigits extends StatelessWidget {
 
   /// The direction in which the text should flow.
   final TextDirection textDirection;
+
+  /// The position of the separator
+  final SeparatorDirection separatorDirection;
 
   /// Padding to add around the separator.
   final EdgeInsets? separatorPadding;

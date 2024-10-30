@@ -34,6 +34,7 @@ abstract class SlideCountdownBase extends StatefulWidget {
     required this.shouldShowMinutes,
     required this.shouldShowSeconds,
     required this.countUpAtDuration,
+    required this.separatorDirection,
     super.key,
   }) : assert(
           duration != null || streamDuration != null,
@@ -154,4 +155,10 @@ abstract class SlideCountdownBase extends StatefulWidget {
   /// if null and [showZeroValue] is false
   /// when duration in seconds is zero it will return false
   final ShouldShowItems? shouldShowSeconds;
+
+  /// Set this property to choose the position of the separator
+  /// If is set to vertical, the separator will be positioned under the digit.
+  /// If is horizontal, the separator will be positioned alongside the digit.
+  /// Horizontal is the default value
+  final SeparatorDirection separatorDirection;
 }
